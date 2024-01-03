@@ -9,6 +9,7 @@ Assign the value arr[idx][y % size(arr[idx])] to last_answer
 Store the new value of last_answer to an answers array.
 """
 
+
 def dynamicArray(n, queries):
     # Write your code here
     arr = [[] for _ in range(n)]
@@ -31,8 +32,6 @@ def dynamicArray(n, queries):
     return answers
 
 
+query = [[1, 0, 5], [1, 1, 7], [1, 0, 3], [2, 1, 0], [2, 1, 1]]
 
-
-input = [[1, 0, 5], [1, 1, 7], [1, 0, 3], [2, 1, 0], [2, 1, 1]]
-
-print(dynamicArray(2, input))
+print(dynamicArray(2, query))
