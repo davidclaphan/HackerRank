@@ -1,52 +1,47 @@
-from typing import List
+def solution(text, width):
+    split_text = text.split()
+    char_counts = []
+    output = ['*************']
+    for val in split_text:
+        char_counts.append(len(val))
 
-def getMaxAdditionalDinersCount(N: int, K: int, M: int, S: List[int]) -> int:
-    additional_diners = 0
+    print(split_text)
+    print(char_counts)
 
-    for i in range(1, N + 1):
+    i = 0
+    prev_word = None
+    current_line = ''
+    counter = width
+    while i > 0:
+        current_word = split_text[i]
 
-        if i in S:
-            continue
+        # handle end of sentence/new sentence
+        if prev_word is None or prev_word[-1] in ['.', '?', '!']:
+            current_line = current_line + '  '
 
-        left = True
-        right = True
+        # add word
+        if len(current_word) <= counter:
+            current_line = current_line + current_word
+            counter -= len(val)
+            prev_word = val
+            i += 1
 
-        # check left
-        for l in range(i - K, i):
-            if l < 1:
-                continue
+        # add space ahead of next word on new line
+        elif len(val) > counter:
+            while counter > 0:
+                current_line = current_line + ' '
+                counter = - 1
 
-            if l in S:
-                left = False
-                break
+        # new line, add current line to output
+        if counter <= 0:
+            output.append(current_line)
+            current_line = ''
+            counter = width
 
-        # check right
-        for r in range(i + 1, i + K + 1):
-            if r > N:
-                break
-
-            if r in S:
-                right = False
-                break
-
-        if left is True and right is True:
-            additional_diners += 1
-            S.append(i)
-
-    print(S)
-    return additional_diners
+    return output
 
 
-N = 10
-K = 1
-M = 2
-S = [2, 6]
+text = "Hi! This is the article you have to format properly. Could you do that for me, please?"
+width = 16
 
-print(getMaxAdditionalDinersCount(N, K, M, S))
-
-N = 15
-K = 2
-M = 3
-S = [11, 6, 14]
-
-print(getMaxAdditionalDinersCount(N, K, M, S))
+print(solution(text,width))
