@@ -2,12 +2,8 @@ import llist
 
 
 class LLStack:
-    def __init__(self, single_or_double):
-        if single_or_double == "single":
-            self._linked_list = llist.sllist([])
-        else:
-            self._linked_list = llist.dllist([])
-
+    def __init__(self):
+        self._linked_list = llist.sllist([])
         self._size = 0
 
     def push(self, value) -> None:
@@ -76,7 +72,7 @@ class LLStack:
 if __name__ == "__main__":
     print("***********START TESTS***********\n")
 
-    llStack = LLStack("single")
+    llStack = LLStack()
     print("ADD 7")
     llStack.push(7)
     llStack.print_stack()
