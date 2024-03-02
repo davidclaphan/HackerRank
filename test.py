@@ -1,4 +1,9 @@
 
 
-for i in range(-1, -5, -1):
-    print(i)
+print("a" == "A")
+print("a" > "A")
+print("A" > "a")
+
+print("abcd" > "ABDC")
+
+print("Aabcd" > "aAbcd")
