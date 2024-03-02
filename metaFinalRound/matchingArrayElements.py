@@ -1,25 +1,24 @@
 
 
 def matching_elements(array1: list, array2: list):
-    values = {}
+    values_1 = {}
+    values_2 = {}
     counter = 0
 
     for val in array1:
-        if val in values:
-            values[val] += 1
+        if val in values_1:
+            values_1[val] += 1
         else:
-            values[val] = 1
+            values_1[val] = 1
 
     for val in array2:
-        if val in values:
-            values[val] += 1
+        if val in values_2:
+            values_2[val] += 1
         else:
-            values[val] = 1
+            values_2[val] = 1
 
-    print(values)
-
-    for val in values:
-        if values[val] > 1:
+    for val in array1:
+        if val in values_1 and val in values_2:
             counter += 1
 
     return counter
