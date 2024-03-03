@@ -1,3 +1,4 @@
+from collections import deque
 
 class Node:
     def __init__(self, value):
@@ -42,7 +43,7 @@ class BST:
 
             self.size += 1
 
-
+# DFS
 def preOrder(node):
     if node is not None:
         print(node.value)
@@ -70,6 +71,24 @@ def inOrderPlusOne(node):
         inOrderPlusOne(node.right)
 
 
+#BFS
+def BFS(root: Node):
+    if root is None:
+        return
+
+    queue = [root]
+
+    while len(queue) > 0:
+        cur_node = queue.pop(0)
+        print(cur_node.value)
+
+        if cur_node.left is not None:
+            queue.append(cur_node.left)
+
+        if cur_node.right is not None:
+            queue.append(cur_node.right)
+
+
 node1 = Node(64)
 node2 = Node(32)
 node3 = Node(80)
@@ -91,6 +110,11 @@ preOrder(myTree.head)
 print("\nStart Post-Order")
 postOrder(myTree.head)
 
+'''
 print("\nLet's add 1 to each node")
 inOrderPlusOne(myTree.head)
 inOrder(myTree.head)
+'''
+
+print("\n Now a BFS")
+BFS(myTree.head)
