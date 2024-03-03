@@ -2,13 +2,12 @@ import random
 mylist = [random.randint(1,10000) for i in range(1000)]
 mylist.sort()
 
-test_list = [ 2, 3, 4, 10, 40, 45, 60, 100, 120, 123, 190, 500, 545, 1000, 1234, 1521]
+test_list = [2, 3, 4, 10, 40, 45, 60, 100, 120, 123, 190, 500, 545, 1000, 1234, 1521]
 
 
 def binary_search(arr, value):
     low = 0
     high = len(arr) - 1
-    mid = 0
 
     while low <= high:
 
