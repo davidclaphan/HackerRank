@@ -1,14 +1,14 @@
-import llist
+from llist import sllist
 
-llst = llist.sllist()
+llst = sllist()
 
 # appendleft == enqueue
 llst.appendleft(8)
-print(llst.first)
+print(llst.first.value)
 llst.appendleft(15)
-print(llst.first)
+print(llst.first.value)
 llst.appendleft(100)
-print(llst.first)
+print(llst.first.value)
 
 print(llst)
 
